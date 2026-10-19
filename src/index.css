@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/* ── Custom variant for class-based dark mode ─────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Material Symbols ─────────────────────────────────── */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga' 1 !important;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.fill-1 {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24 !important;
+}
+
+/* ── Base ─────────────────────────────────────────────── */
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8faf9;
+    color: #191c1c;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+  }
+
+  .pt-safe {
+    padding-top: max(env(safe-area-inset-top, 0px), 12px);
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   DARK MODE OVERRIDES
+   Targeting all hardcoded Tailwind arbitrary color values
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Root & Body ─────────────────────────────────────── */
+html.dark,
+html.dark body {
+  background-color: #0e1512;
+  color: #e2e8e4;
+  color-scheme: dark;
+}
+
+/* ── Main backgrounds ────────────────────────────────── */
+html.dark .bg-\[\#f8faf9\] { background-color: #0e1512 !important; }
+html.dark .bg-\[\#f8faf9\]\/95 { background-color: rgba(14, 21, 18, 0.95) !important; }
+html.dark .bg-\[\#f8faf9\]\/90 { background-color: rgba(14, 21, 18, 0.90) !important; }
+html.dark .bg-\[\#f8faf9\]\/85 { background-color: rgba(14, 21, 18, 0.88) !important; }
+html.dark .bg-\[\#f8faf9\]\/80 { background-color: rgba(14, 21, 18, 0.80) !important; }
+html.dark .bg-\[\#f2f4f3\] { background-color: #192320 !important; }
+html.dark .bg-\[\#eceeed\] { background-color: #1e2b27 !important; }
+html.dark .bg-\[\#e6e9e8\] { background-color: #1e2b27 !important; }
+html.dark .bg-\[\#e2e8e4\] { background-color: #232f2b !important; }
+html.dark .bg-\[\#e1e3e2\] { background-color: #232f2b !important; }
+html.dark .bg-\[\#dde2df\] { background-color: #2a3832 !important; }
+html.dark .bg-\[\#d7e2dc\] { background-color: #1e2d28 !important; }
+
+/* ── White backgrounds ───────────────────────────────── */
+html.dark .bg-white { background-color: #182220 !important; }
+html.dark .bg-white\/95 { background-color: rgba(24,34,32,0.92) !important; }
+html.dark .bg-white\/90 { background-color: rgba(24,34,32,0.90) !important; }
+html.dark .bg-white\/80 { background-color: rgba(24,34,32,0.80) !important; }
+html.dark .bg-white\/15 { background-color: rgba(255,255,255,0.12) !important; }
+html.dark .bg-white\/10 { background-color: rgba(255,255,255,0.08) !important; }
+
+/* ── Dark surfaces (already dark, make them slightly different) */
+html.dark .bg-\[\#17211D\] { background-color: #0a100e !important; }
+html.dark .bg-\[\#111816\] { background-color: #080d0c !important; }
+
+/* ── Primary brand & Accent backgrounds ──────────────── */
+html.dark .bg-\[\#84cc16\] { background-color: #84cc16 !important; }
+html.dark .bg-\[\#9BE15D\] { background-color: #84cc16 !important; }
+html.dark .bg-\[\#416900\] { background-color: #84cc16 !important; color: #102000 !important; }
+html.dark .bg-\[\#386a00\] { background-color: #84cc16 !important; color: #102000 !important; }
+html.dark .bg-\[\#84cc16\]\/15 { background-color: rgba(132, 204, 22, 0.18) !important; }
+html.dark .bg-\[\#84cc16\]\/20 { background-color: rgba(132, 204, 22, 0.22) !important; }
+html.dark .bg-\[\#416900\]\/10 { background-color: rgba(132, 204, 22, 0.15) !important; }
+
+/* ── Keep text and icons on bright green buttons dark in dark mode ── */
+html.dark .bg-\[\#84cc16\],
+html.dark .bg-\[\#84cc16\] *,
+html.dark .bg-\[\#9BE15D\],
+html.dark .bg-\[\#9BE15D\] *,
+html.dark .bg-\[\#91db2a\],
+html.dark .bg-\[\#91db2a\] *,
+html.dark #cta-create-journey-btn,
+html.dark #cta-create-journey-btn *,
+html.dark #start-journey-btn,
+html.dark #start-journey-btn * {
+  color: #102000 !important;
+}
+
+/* ── Tag & Badge backgrounds ─────────────────────────── */
+html.dark .bg-blue-100 { background-color: rgba(37, 99, 235, 0.22) !important; }
+html.dark .text-blue-700 { color: #93c5fd !important; }
+html.dark .bg-purple-100 { background-color: rgba(147, 51, 234, 0.22) !important; }
+html.dark .text-purple-700 { color: #d8b4fe !important; }
+html.dark .bg-orange-100 { background-color: rgba(234, 88, 12, 0.22) !important; }
+html.dark .text-orange-700 { color: #fdba74 !important; }
+
+/* ── Text colors ─────────────────────────────────────── */
+html.dark .text-\[\#191c1c\] { color: #e2e8e4 !important; }
+html.dark .text-\[\#424936\] { color: #a8b9aa !important; }
+html.dark .text-\[\#56615c\] { color: #8a9e95 !important; }
+html.dark .text-\[\#17211D\] { color: #102000 !important; }
+html.dark .text-\[\#141e1a\] { color: #e2e8e4 !important; }
+html.dark .text-\[\#102000\] { color: #0d1a07 !important; }
+html.dark .text-\[\#416900\] { color: #a3e635 !important; }
+html.dark .text-\[\#386a00\] { color: #a3e635 !important; }
+
+/* ── Border colors ───────────────────────────────────── */
+html.dark .border-\[\#e2e8e4\] { border-color: #2a3832 !important; }
+html.dark .border-\[\#f2f4f3\] { border-color: #232f2b !important; }
+html.dark .border-\[\#eceeed\] { border-color: #232f2b !important; }
+html.dark .border-\[\#dde2df\] { border-color: #2a3832 !important; }
+html.dark .border-\[\#d7e2dc\] { border-color: #2a3832 !important; }
+html.dark .border-\[\#e2e8e4\]\/80 { border-color: rgba(42,56,50,0.80) !important; }
+html.dark .border-\[\#e2e8e4\]\/60 { border-color: rgba(42,56,50,0.60) !important; }
+
+/* ── Ring colors ─────────────────────────────────────── */
+html.dark .ring-\[\#f8faf9\] { --tw-ring-color: #0e1512 !important; }
+html.dark .ring-white { --tw-ring-color: #182220 !important; }
+html.dark .ring-\[\#c1cab0\]\/40 { --tw-ring-color: rgba(70, 90, 80, 0.45) !important; }
+
+/* ── Hover states in dark mode ───────────────────────── */
+html.dark .hover\:bg-\[\#e6e9e8\]:hover { background-color: #232f2b !important; }
+html.dark .hover\:bg-\[\#eceeed\]:hover { background-color: #232f2b !important; }
+html.dark .hover\:bg-\[\#f2f4f3\]:hover { background-color: #1e2b27 !important; }
+html.dark .hover\:bg-\[\#d7e2dc\]:hover { background-color: #283933 !important; }
+html.dark .hover\:text-\[\#191c1c\]:hover { color: #e2e8e4 !important; }
+
+/* ── Shadows ─────────────────────────────────────────── */
+html.dark .shadow-\[0_10px_24px_rgba\(23\,33\,29\,0\.12\)\] {
+  box-shadow: 0 10px 24px rgba(0,0,0,0.5) !important;
+}
+html.dark .shadow-\[0_10px_24px_rgba\(23\,33\,29\,0\.08\)\] {
+  box-shadow: 0 10px 24px rgba(0,0,0,0.4) !important;
+}
+html.dark .shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.45) !important; }
+html.dark .shadow-xl { box-shadow: 0 20px 40px rgba(0,0,0,0.6) !important; }
+html.dark .shadow-2xl { box-shadow: 0 25px 50px rgba(0,0,0,0.7) !important; }
+
+/* ── Backdrop / blur elements ────────────────────────── */
+html.dark .backdrop-blur-xl { backdrop-filter: blur(16px); }
+html.dark .backdrop-blur-2xl { backdrop-filter: blur(24px); }
+
+/* ── Gradient overlays – make slightly stronger ──────── */
+html.dark .from-\[\#17211D\]\/80 { --tw-gradient-from: rgba(8,16,13,0.85) !important; }
+
+/* ── Focus rings on inputs ───────────────────────────── */
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  border-color: #84cc16 !important;
+  background-color: #192320 !important;
+}
+
+/* ── Input/Textarea base in dark ─────────────────────── */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  color: #e2e8e4;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #5a7068;
+}
+
+/* ── Transition for smooth mode switching ────────────── */
+html.dark *,
+html *  {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* Exclude transforms and other props from universal transition */
+html * {
+  transition-property: background-color, border-color, color, box-shadow, opacity, transform;
+}
+
+/* ── Ensure logo visibility in dark mode ── */
+html.dark .dark\:hidden {
+  display: none !important;
+}
+html.dark .dark\:block {
+  display: block !important;
+}
+

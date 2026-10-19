@@ -1,0 +1,6 @@
+{
+  "name": "EVOLVE - AI Personal Trainer & Nutrition",
+  "description": "Programmi di allenamento su misura, nutrizione biologica intelligente e analisi continua dei tuoi progressi, tutto guidato dall'AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
